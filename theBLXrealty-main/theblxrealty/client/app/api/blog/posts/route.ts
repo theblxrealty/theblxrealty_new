@@ -91,7 +91,7 @@ export async function GET(request: NextRequest) {
       posts: [],
       pagination: {
         page: 1,
-        limit: 10,
+        limit: 100,
         total: 0,
         totalPages: 0
       },

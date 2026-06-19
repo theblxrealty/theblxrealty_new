@@ -48,7 +48,7 @@ export default function BlogPage({ searchParams }: BlogPageProps) {
   const [loading, setLoading] = useState(true)
   const [pagination, setPagination] = useState({
     page: 1,
-    limit: 10,
+    limit:100,
     total: 0,
     totalPages: 0
   })
