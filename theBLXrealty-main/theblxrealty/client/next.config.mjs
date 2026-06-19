@@ -21,14 +21,9 @@ const nextConfig = {
     return config;
   },
   images: {
-    // FIXED: Enable Next.js image optimization for WebP/AVIF conversion, responsive sizing, lazy loading
-    // This single fix provides 50-70% image file size reduction
-    unoptimized: false,
-    // Enable AVIF format for maximum compression (Chrome, Edge)
-    formats: ['image/avif', 'image/webp'],
-    // Increase device sizes for better responsive images
-    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
-    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // Disable optimization since images are already in optimized WebP format
+    // This prevents 402 errors on Vercel from image optimization API
+    unoptimized: true,
     remotePatterns: [
       {
         protocol: 'https',
