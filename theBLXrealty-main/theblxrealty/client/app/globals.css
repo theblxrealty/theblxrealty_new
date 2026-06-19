@@ -1,0 +1,306 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Font imports - OPTIMIZED: Only load critical weights with font-display:swap for zero FOIT */
+@import url('https://fonts.googleapis.com/css2?family=Tiempos+Headline:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Suisse+Intl:wght@400;600&display=swap');
+
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 217.2 91.2% 59.8%;
+    --primary-foreground: 222.2 84% 4.9%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 217.2 91.2% 59.8%;
+    --radius: 0.5rem;
+  }
+
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    /* OPTIMIZED: Removed transition on all properties - caused layout thrashing during scroll */
+  }
+}
+
+@layer components {
+  /* Font classes */
+  .font-tiempos {
+    font-family: 'Tiempos Headline', serif;
+    font-weight: 400;
+  }
+  
+  .font-suisse {
+    font-family: 'Suisse Intl', sans-serif;
+  }
+  
+  /* Additional font weight classes */
+  .font-tiempos-medium {
+    font-family: 'Tiempos Headline', serif;
+    font-weight: 500;
+  }
+  
+  .font-tiempos-semibold {
+    font-family: 'Tiempos Headline', serif;
+    font-weight: 600;
+  }
+  
+  .font-suisse-medium {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 500;
+  }
+  
+  .font-suisse-semibold {
+    font-family: 'Suisse Intl', sans-serif;
+    font-weight: 600;
+  }
+  
+  /* Animation classes */
+  .animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-up {
+    animation: slideUp 0.8s ease-out forwards;
+  }
+  
+  .animate-slide-up-delay-1 {
+    animation: slideUp 0.8s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+  
+  .animate-slide-up-delay-2 {
+    animation: slideUp 0.8s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+  
+  .animate-slide-up-delay-3 {
+    animation: slideUp 0.8s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Consistent section spacing */
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+  
+  .section-padding-sm {
+    @apply py-12 md:py-16;
+  }
+  
+  /* Consistent container spacing */
+  .container-padding {
+    @apply px-4 sm:px-6 lg:px-8;
+  }
+  
+  /* Consistent card styling */
+  .premium-card {
+    @apply bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 border border-slate-200;
+  }
+  
+  /* Consistent gradient backgrounds */
+  .premium-gradient {
+    @apply bg-gradient-to-br from-navy-900 via-navy-800 to-slate-900;
+  }
+  
+  .light-gradient {
+    @apply bg-gradient-to-br from-slate-50 to-slate-100;
+  }
+  
+  /* Consistent text styling */
+  .heading-xl {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold;
+  }
+  
+  .heading-lg {
+    @apply text-2xl md:text-3xl font-bold;
+  }
+  
+  .heading-md {
+    @apply text-xl font-bold;
+  }
+  
+  .body-lg {
+    @apply text-lg;
+  }
+  
+  .body-md {
+    @apply text-base;
+  }
+  
+  .body-sm {
+    @apply text-sm;
+  }
+}
+
+/* Custom animations */
+@keyframes float {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* Elegant Image Bounce Hover Effect */
+@keyframes imageBounce {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-12px) scale(1.02);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.image-hover-bounce {
+  transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.image-hover-bounce:hover {
+  animation: imageBounce 0.6s ease-out forwards;
+  filter: drop-shadow(0 20px 25px rgba(0, 0, 0, 0.15));
+}
+
+/* Elegant Heading Bounce Hover Effect */
+@keyframes headingBounce {
+  0% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-6px) scale(1.01);
+  }
+  100% {
+    transform: translateY(0px) scale(1);
+  }
+}
+
+.heading-hover-bounce {
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.heading-hover-bounce:hover {
+  animation: headingBounce 0.5s ease-out forwards;
+  color: #011337;
+}
+
+/* Premium gradient backgrounds */
+.premium-gradient {
+  background: linear-gradient(135deg, #1e3a8a 0%, #1e40af 25%, #3b82f6 50%, #60a5fa 75%, #93c5fd 100%);
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, #f59e0b 0%, #d97706 25%, #b45309 50%, #92400e 75%, #78350f 100%);
+}
+
+.luxury-gradient {
+  background: linear-gradient(135deg, #1e293b 0%, #334155 25%, #475569 50%, #64748b 75%, #94a3b8 100%);
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Improved focus states */
+.focus-ring {
+  @apply focus:outline-none focus:ring-2 focus:ring-navy-500 focus:ring-offset-2;
+}
+
+/* Consistent hover effects */
+.hover-lift {
+  @apply transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl;
+}
+
+/* Premium text gradients */
+.text-gradient-gold {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-gold-400 to-gold-600;
+}
+
+.text-gradient-navy {
+  @apply text-transparent bg-clip-text bg-gradient-to-r from-navy-600 to-navy-800;
+}
+
+/* Line clamp utilities for consistent text truncation */
+.line-clamp-1 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+}
+
+.line-clamp-3 {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+
+/* Hide scrollbar for webkit browsers */
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* Internet Explorer 10+ */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;  /* Safari and Chrome */
+}

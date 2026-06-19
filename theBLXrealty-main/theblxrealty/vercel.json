@@ -1,0 +1,13 @@
+{
+  "buildCommand": "cd client && node scripts/resolve-migrations.js && pnpm build",
+  "installCommand": "cd client && pnpm install",
+  "framework": "nextjs",
+  "outputDirectory": "client/.next",
+  "rootDirectory": "client",
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["bom1"]
+}

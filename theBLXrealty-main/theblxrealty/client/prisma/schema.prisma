@@ -1,0 +1,251 @@
+generator client {
+  provider        = "prisma-client-js"
+  previewFeatures = ["driverAdapters"]
+  binaryTargets   = ["native", "debian-openssl-1.1.x"]
+}
+
+/// @seed="tsx prisma/seed.ts"
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+model User {
+  id                   String                @id @default(cuid())
+  email                String                @unique
+  phone                String?               @unique
+  password             String?
+  firstName            String?
+  lastName             String?
+  title                String?
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  image                String?
+  accounts             Account[]
+  careerApplications   CareerApplication[]
+  contactRequests      ContactRequest[]
+  propertyViewRequests PropertyViewRequest[]
+  savedProperties      SavedProperty[]
+  sessions             Session[]
+
+  @@map("users")
+}
+
+model Admin {
+  id         String     @id @default(cuid())
+  email      String     @unique
+  phone      String     @unique
+  password   String
+  firstName  String?
+  lastName   String?
+  role       String     @default("admin")
+  createdAt  DateTime   @default(now())
+  updatedAt  DateTime   @updatedAt
+  blogPosts  BlogPost[]
+  properties Property[]
+
+  @@map("admins")
+}
+
+model Property {
+  id                   String                @id @default(cuid())
+  title                String
+  description          String?
+  longDescription      String?               // Extended description for "more about property"
+  price                Float?
+  priceUnit            String                @default("cr")        // Unit: "rs", "lakh", "cr", "per_sqft"
+  location             String?
+  latitude             Float?
+  longitude            Float?
+  propertyType         String?
+  bedrooms             Int?
+  bathrooms            Int?
+  area                 Float?
+  availableBhk         String?               // Available BHK options (e.g., "2, 3")
+  yearBuilt            Int?                  // Year the property was built
+  lotSize              String?               // Lot size information
+  isActive             Boolean               @default(true)
+  createdAt            DateTime              @default(now())
+  updatedAt            DateTime              @updatedAt
+  adminId              String?
+  propertyCategory     String
+  additionalImages     String[]
+  propertyBanner1      String?
+  propertyBanner2      String?
+  
+  // Amenities and features
+  amenities            String[]              // Property amenities
+  ecoFeatures          String[]              // Eco-friendly features
+  
+  // Neighborhood information
+  nearbyAmenities      Json?                 // JSON object with nearby amenities and distances
+  transportation       Json?                 // JSON object with transportation options and times
+  
+  // Agent information
+  agentName            String?               // Agent name
+  agentPhone           String?               // Agent phone
+  agentEmail           String?               // Agent email
+  agentImage           String?               // Agent profile image
+  
+  admin                Admin?                @relation(fields: [adminId], references: [id])
+  propertyViewRequests PropertyViewRequest[]
+  savedProperties      SavedProperty[]
+
+  @@map("properties")
+}
+
+model PropertyViewRequest {
+  id             String   @id @default(cuid())
+  propertyId     String
+  userId         String?
+  firstName      String
+  lastName       String
+  email          String
+  phone          String
+  title          String?
+  preferredDate  String?
+  preferredTime  String?
+  additionalInfo String?
+  heardFrom      String?
+  status         String   @default("pending")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+  property       Property @relation(fields: [propertyId], references: [id])
+  user           User?    @relation(fields: [userId], references: [id])
+
+  @@map("property_view_requests")
+}
+
+model ContactRequest {
+  id        String   @id @default(cuid())
+  userId    String?
+  name      String
+  email     String
+  phone     String
+  message   String
+  status    String   @default("pending")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  user      User?    @relation(fields: [userId], references: [id])
+
+  @@map("contact_requests")
+}
+
+model CareerApplication {
+  id         String   @id @default(cuid())
+  userId     String?
+  firstName  String
+  lastName   String
+  email      String
+  phone      String
+  position   String
+  experience String
+  message    String
+  resume     String?
+  status     String   @default("pending")
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+  location   String?
+  user       User?    @relation(fields: [userId], references: [id])
+
+  @@map("career_applications")
+}
+
+model CareerPosting {
+  id          String   @id @default(cuid())
+  title       String
+  location    String
+  type        String
+  salary      String?
+  experience  String
+  description String
+  requirements String[]
+  benefits    String[]
+  isActive    Boolean   @default(true)
+  createdAt   DateTime  @default(now())
+  updatedAt   DateTime  @updatedAt
+
+  @@map("career_postings")
+}
+
+model BlogPost {
+  id            String    @id @default(cuid())
+  title         String
+  slug          String    @unique
+  excerpt       String?
+  content       String
+  featuredImage String?
+  redirectUrl   String?   // New field for blog redirect URL
+  authorId      String?
+  category      String?
+  tags          String[]
+  isPublished   Boolean   @default(false)
+  publishedAt   DateTime?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  author        Admin?    @relation(fields: [authorId], references: [id])
+
+  @@map("blog_posts")
+}
+
+model NewsletterSubscription {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  isActive  Boolean  @default(true)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@map("newsletter_subscriptions")
+}
+
+model Account {
+  id                String  @id @default(cuid())
+  userId            String
+  type              String
+  provider          String
+  providerAccountId String
+  refresh_token     String?
+  access_token      String?
+  expires_at        Int?
+  token_type        String?
+  scope             String?
+  id_token          String?
+  session_state     String?
+  user              User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@unique([provider, providerAccountId])
+  @@map("accounts")
+}
+
+model Session {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("sessions")
+}
+
+model VerificationToken {
+  identifier String
+  token      String   @unique
+  expires    DateTime
+
+  @@unique([identifier, token])
+  @@map("verification_tokens")
+}
+
+model SavedProperty {
+  id         String   @id @default(cuid())
+  userId     String
+  propertyId String
+  createdAt  DateTime @default(now())
+  user       User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  property   Property @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, propertyId])
+  @@map("saved_properties")
+}

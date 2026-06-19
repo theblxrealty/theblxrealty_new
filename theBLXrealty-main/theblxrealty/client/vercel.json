@@ -1,0 +1,11 @@
+{
+  "buildCommand": "node scripts/resolve-migrations.js && pnpm build",
+  "installCommand": "pnpm install",
+  "framework": "nextjs",
+  "functions": {
+    "app/api/**/*.ts": {
+      "maxDuration": 30
+    }
+  },
+  "regions": ["bom1"]
+}
