@@ -227,7 +227,7 @@ export default function HomePage() {
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-4xl font-bold mb-6 text-black heading-hover-bounce" style={{fontFamily: 'Tiempos Headline, serif', fontWeight: '400'}}>Why The BLX Realty?</h2>
             <p className="text-lg text-gray-500 mb-8 font-['Suisse_Intl',sans-serif] max-w-3xl mx-auto">
-             The Bengaluru-London Exchange(theBLX) is the leading luxury property marketplace in Bengaluru and London, connecting discerning buyers and sellers across residential, commercial and investment properties. We have become the trusted platform for NRIs to search for, buy, and sell properties across borders.
+             The BLX Realty is the leading luxury property marketplace in Bengaluru and London, connecting discerning buyers and sellers across residential, commercial and investment properties. We have become the trusted platform for NRIs to search for, buy, and sell properties across borders.
             </p>
           </div>
 
