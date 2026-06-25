@@ -125,7 +125,7 @@ export default function TermsAndConditionsPage() {
                 <p>
                   Email: <a href="mailto:Discoverblr@theblxrealty.com" className="text-[#17346e] hover:underline">Discoverblr@theblxrealty.com</a>
                 </p>
-                <p>Phone: +91 9743264328</p>
+                <p>Phone: +91 8197773166</p>
               </div>
             </section>
 
@@ -137,7 +137,7 @@ export default function TermsAndConditionsPage() {
                 Back to Home
               </Link>
               <Link
-                href="/contact"
+                href="/contact#contact-information"
                 className="inline-flex items-center px-4 py-2 rounded-md border border-gray-300 text-gray-700 hover:bg-gray-100 transition-colors"
               >
                 Contact Us

@@ -204,8 +204,7 @@ export default function Header() {
           
           {/* Left Section - Logo */}
           <Link href="/" className="flex items-center">
-             {/* 3. Significantly reduced logo size to reduce height further */}
-            <div className="relative w-[120px] h-[120px] overflow-visible">
+            <div className="relative w-[150px] h-[150px] overflow-visible">
               <Image
                 src="/logo.webp"
                 alt="The BLX Realty Logo"
@@ -232,7 +231,7 @@ export default function Header() {
                     : `${textColor} ${hoverTextColor}`
                 }`}
               >
-                For Buyers
+                Properties
               </Link>
               
               {/* Dropdown Menu */}

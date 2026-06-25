@@ -62,7 +62,7 @@ export default function AboutPage() {
                 At The Bengaluru-London Exchange [BLX] Realty, we are more than just a real estate company—we are trusted partners in your journey to find the perfect home or investment property. With branches in India, Dubai, and the UK, we bring a global perspective combined with local market expertise. Our diverse team of skilled professionals is dedicated to delivering personalized solutions tailored to your unique needs and aspirations.
               </p>
                
-              <Link href="/contact">
+              <Link href="/contact#contact-information">
                 <Button className="bg-[#011337] hover:bg-[#011337]/90 text-white px-8 py-4 font-['Suisse_Intl',sans-serif] font-medium\">
                   Get in Touch <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -146,7 +146,7 @@ export default function AboutPage() {
 
               </p>
                
-              <Link href="/contact">
+              <Link href="/contact#contact-information">
                 <Button className="bg-[#011337] hover:bg-[#011337]/90 text-white px-8 py-4 font-['Suisse_Intl',sans-serif] font-medium">
                   Experience Innovation <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -196,7 +196,7 @@ export default function AboutPage() {
                 This global perspective, combined with deep local expertise, enables us to deliver exceptional value
                 to both domestic and international clients seeking premium real estate opportunities in Bangalore.
               </p>
-              <Link href="/contact">
+              <Link href="/contact#contact-information">
                 <Button variant="premium">
                   Join Our Network <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
@@ -359,7 +359,7 @@ export default function AboutPage() {
                   Explore Our Properties
                 </Button>
               </Link>
-              <Link href="/contact">
+              <Link href="/contact#contact-information">
                 <Button
                   size="lg"
                   variant="outline"

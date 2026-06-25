@@ -68,7 +68,7 @@ export default function PremiumPropertyPortfolio() {
          Connect with our team of real estate experts in Bengaluru and discover premium apartments, villas, and investment properties tailored to your needs — from ready-to-move homes to off-plan opportunities across North, South, and East Bengaluru.
         </p>
         <Link
-          href="/contact"
+          href="/contact#contact-information"
           className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
         >
           Contact Us

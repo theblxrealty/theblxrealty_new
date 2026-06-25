@@ -68,7 +68,7 @@ export default function ExpertMarketInsights() {
           Connect with our market experts today and gain valuable insights into Bengaluru's property market that will shape your next real estate investment.
         </p>
         <Link
-          href="/contact"
+          href="/contact#contact-information"
           className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
         >
           Contact Us

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { formatPrice } from '@/lib/utils'
@@ -39,6 +40,7 @@ function formatAvailableBhk(value?: string | null) {
 }
 
 export default function PropertyCarousel() {
+  const router = useRouter()
   const [properties, setProperties] = useState<Property[]>([])
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isLoading, setIsLoading] = useState(true)
@@ -136,7 +138,8 @@ export default function PropertyCarousel() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
               transition={{ duration: 0.5 }}
-              className="relative bg-gradient-to-br from-pink-100 to-purple-50 rounded-3xl overflow-hidden shadow-2xl"
+              onClick={() => router.push(`/properties/${currentProperty.id}`)}
+              className="relative bg-gradient-to-br from-pink-100 to-purple-50 rounded-3xl overflow-hidden shadow-2xl cursor-pointer"
             >
               <div className="grid grid-cols-1 lg:grid-cols-3 gap-0 min-h-96">
                 {/* Image Section - 2 columns */}

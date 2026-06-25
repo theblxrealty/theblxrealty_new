@@ -236,7 +236,7 @@ This project is proprietary software owned by The BLX Realty.
 
 For technical support or questions:
 - Email: discoverblr@theblxrealtyrealty.com
-- Phone: +91 9743264328
+- Phone: +91 8197773166
 - Office: 59, 10th A Cross Road, West of Chord Road, Bangalore, Karnataka 560086
 
 ---

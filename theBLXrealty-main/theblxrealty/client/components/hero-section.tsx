@@ -64,7 +64,7 @@ export default function HeroSection() {
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Button>
                 </Link>
-                <Link href="/contact">
+                <Link href="/contact#contact-information">
                   <Button 
                     size="lg" 
                     variant="ghost"

@@ -276,7 +276,7 @@ function PropertiesContent() {
               <Button
                 variant="default"
                 className="bg-[#011337] hover:bg-[#011337]/90 text-white px-8 py-4 font-['Suisse_Intl',sans-serif] font-medium"
-                onClick={() => router.push('/contact')}
+                onClick={() => router.push('/contact#contact-information')}
               >
                 Contact Us
               </Button>
@@ -357,7 +357,7 @@ function PropertiesContent() {
               <Button 
                 size="lg" 
                 className="bg-[#011337] hover:bg-[#011337]/90 text-white px-8 py-4 font-['Suisse_Intl',sans-serif] font-medium"
-                onClick={() => router.push('/contact')}
+                onClick={() => router.push('/contact#contact-information')}
               >
                 Schedule a Consultation
               </Button>
@@ -365,7 +365,7 @@ function PropertiesContent() {
                 size="lg" 
                 variant="outline"
                 className="border-[#011337] text-[#011337] hover:bg-[#011337] hover:text-white px-8 py-4 font-['Suisse_Intl',sans-serif] font-medium"
-                onClick={() => router.push('/contact')}
+                onClick={() => router.push('/contact#contact-information')}
               >
                 Contact Our Team
               </Button>

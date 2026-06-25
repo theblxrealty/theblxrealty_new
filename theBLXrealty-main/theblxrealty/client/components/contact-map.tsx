@@ -22,7 +22,7 @@ export default function ContactMap({
   zoom = 15,
   officeName = "The BLX Realty Office",
   address = "#0301D 3rd floor, Brigade Twin Towers\nWard No. 38, No. 11/1-4 Pipeline Road HMT, Yeswanthpur, Bengaluru, Karnataka 560022, India",
-  phone = "+91 9743264328",
+  phone = "+91 8197773166",
   email = "Discoverblr@theblxrealty.com",
   height = "500px"
 }: ContactMapProps) {

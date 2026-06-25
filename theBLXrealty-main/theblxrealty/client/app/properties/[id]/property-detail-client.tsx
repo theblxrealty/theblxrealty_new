@@ -78,17 +78,13 @@ export default function PropertyDetailPageClient({ property }: PropertyDetailPag
       ? formatPrice(property.priceAmount, property.priceUnit)
       : "Price on Application"
 
-  const [showFullDescription, setShowFullDescription] = useState(false)
+  const [showFullDescription, setShowFullDescription] = useState(true)
   const [isPhotoModalOpen, setIsPhotoModalOpen] = useState(false)
   const [currentPhotoIndex, setCurrentPhotoIndex] = useState(0)
   const [isShareModalOpen, setIsShareModalOpen] = useState(false)
   const [propertyUrl, setPropertyUrl] = useState('')
   const [imageLoadingStates, setImageLoadingStates] = useState<Record<number, boolean>>({})
   const [imageErrors, setImageErrors] = useState<Record<number, boolean>>({})
-
-  const toggleDescription = () => {
-    setShowFullDescription(!showFullDescription)
-  }
 
   const openPhotoModal = () => {
     setIsPhotoModalOpen(true)
@@ -348,87 +344,69 @@ export default function PropertyDetailPageClient({ property }: PropertyDetailPag
                         }. The location provides easy access to major amenities and transportation networks.`}
                     </p>
 
-                    {!showFullDescription && (
-                      <p className="text-gray-500 font-['Suisse_Intl',sans-serif] leading-relaxed mb-6">
-                        ...
-                      </p>
-                    )}
-
-                    {showFullDescription && (
-                      <div className="text-gray-500 font-['Suisse_Intl',sans-serif] leading-relaxed mb-6 space-y-4">
-                        {property.longDescription ? (
-                          <div
-                            dangerouslySetInnerHTML={{
-                              __html: property.longDescription.replace(/\n/g, "<br />"),
-                            }}
-                          />
-                        ) : (
-                          <>
-                            <p>
-                              This{" "}
-                              {property.propertyCategory === "farm house"
-                                ? "farm house"
-                                : property.propertyCategory === "commercial"
-                                  ? "commercial property"
-                                  : property.propertyCategory === "luxury villas"
-                                    ? "luxury villa"
-                                    : property.propertyCategory === "flats"
-                                      ? "apartment"
-                                      : property.propertyCategory === "new buildings"
-                                        ? "new building"
-                                        : property.propertyCategory === "sites"
-                                          ? "development plot"
-                                          : property.propertyCategory === "investment"
-                                            ? "investment property"
-                                            : "property"}{" "}
-                              offers excellent potential for development and investment. The location in{" "}
-                              {property.location} provides strategic advantages for{" "}
-                              {property.propertyCategory === "farm house"
-                                ? "agricultural and residential development"
-                                : property.propertyCategory === "commercial"
-                                  ? "business operations and expansion"
-                                  : property.propertyCategory === "sites"
-                                    ? "construction and development"
-                                    : property.propertyCategory === "investment"
-                                      ? "investment returns and appreciation"
-                                      : "comfortable family living and lifestyle enhancement"}
-                              .
-                            </p>
-
-                            <p>
-                              {property.location} is a thriving area with excellent amenities including schools, shopping
-                              centers, restaurants, and recreational facilities. The location provides easy access to
-                              major transportation networks, making it convenient for daily commutes and business
-                              operations.
-                            </p>
-
-                            <p>
-                              This represents a unique opportunity to acquire a{" "}
-                              {property.propertyCategory === "sites"
-                                ? "development plot"
-                                : property.propertyCategory === "commercial"
-                                  ? "commercial space"
+                    <div className="text-gray-500 font-['Suisse_Intl',sans-serif] leading-relaxed mb-6 space-y-4">
+                      {property.longDescription ? (
+                        <div
+                          dangerouslySetInnerHTML={{
+                            __html: property.longDescription.replace(/\n/g, "<br />"),
+                          }}
+                        />
+                      ) : (
+                        <>
+                          <p>
+                            This{" "}
+                            {property.propertyCategory === "farm house"
+                              ? "farm house"
+                              : property.propertyCategory === "commercial"
+                                ? "commercial property"
+                                : property.propertyCategory === "luxury villas"
+                                  ? "luxury villa"
+                                  : property.propertyCategory === "flats"
+                                    ? "apartment"
+                                    : property.propertyCategory === "new buildings"
+                                      ? "new building"
+                                      : property.propertyCategory === "sites"
+                                        ? "development plot"
+                                        : property.propertyCategory === "investment"
+                                          ? "investment property"
+                                          : "property"}{" "}
+                            offers excellent potential for development and investment. The location in{" "}
+                            {property.location} provides strategic advantages for{" "}
+                            {property.propertyCategory === "farm house"
+                              ? "agricultural and residential development"
+                              : property.propertyCategory === "commercial"
+                                ? "business operations and expansion"
+                                : property.propertyCategory === "sites"
+                                  ? "construction and development"
                                   : property.propertyCategory === "investment"
-                                    ? "investment property"
-                                    : "residential property"}{" "}
-                              in one of{" "}
-                              {property.location.split(",")[1]?.trim() || "the area"}
-                              's most sought-after locations.
-                            </p>
-                          </>
-                        )}
-                      </div>
-                    )}
+                                    ? "investment returns and appreciation"
+                                    : "comfortable family living and lifestyle enhancement"}
+                            .
+                          </p>
 
-                    <button
-                      onClick={toggleDescription}
-                      className="flex items-center gap-2 text-[#011337] hover:text-[#011337]/70 font-['Suisse_Intl',sans-serif] font-medium transition-colors"
-                    >
-                      <span className="w-6 h-6 border border-[#011337] rounded-full flex items-center justify-center">
-                        <span className="text-[#011337] text-sm">{showFullDescription ? "−" : "+"}</span>
-                      </span>
-                      {showFullDescription ? "See less" : "See more"}
-                    </button>
+                          <p>
+                            {property.location} is a thriving area with excellent amenities including schools, shopping
+                            centers, restaurants, and recreational facilities. The location provides easy access to
+                            major transportation networks, making it convenient for daily commutes and business
+                            operations.
+                          </p>
+
+                          <p>
+                            This represents a unique opportunity to acquire a{" "}
+                            {property.propertyCategory === "sites"
+                              ? "development plot"
+                              : property.propertyCategory === "commercial"
+                                ? "commercial space"
+                                : property.propertyCategory === "investment"
+                                  ? "investment property"
+                                  : "residential property"}{" "}
+                            in one of{" "}
+                            {property.location.split(",")[1]?.trim() || "the area"}
+                            's most sought-after locations.
+                          </p>
+                        </>
+                      )}
+                    </div>
                   </div>
                 </div>
               </div>
@@ -639,59 +617,6 @@ export default function PropertyDetailPageClient({ property }: PropertyDetailPag
             currentPropertyType={property.type}
             currentPropertyLocation={property.location}
           />
-        </div>
-      </section>
-
-      {/* Internal Linking: Related Locations & Blogs */}
-      <section className="py-12 bg-white border-t border-gray-100">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            {/* Related Locations */}
-            <div>
-              <h2 className="text-xl md:text-2xl font-bold mb-6 text-black font-tiempos" style={{fontFamily: 'Tiempos Headline, serif', fontWeight: '400'}}>
-                Explore Properties by Location
-              </h2>
-              <div className="flex flex-wrap gap-3 font-suisse">
-                {[
-                  { name: "JP Nagar, Bangalore", href: "/properties?location=JP%20Nagar" },
-                  { name: "Whitefield, Bangalore", href: "/properties?location=Whitefield" },
-                  { name: "Indiranagar, Bangalore", href: "/properties?location=Indiranagar" },
-                  { name: "Yeswanthpur, Bangalore", href: "/properties?location=Yeswanthpur" },
-                  { name: "London, United Kingdom", href: "/properties?location=London" }
-                ].map((loc) => (
-                  <Link 
-                    key={loc.name} 
-                    href={loc.href}
-                    className="px-4 py-2 text-sm bg-gray-50 hover:bg-gray-100 border border-gray-200 hover:border-[#011337]/30 text-gray-700 hover:text-[#011337] rounded-lg transition-all"
-                  >
-                    {loc.name}
-                  </Link>
-                ))}
-              </div>
-            </div>
-
-            {/* Related Blogs */}
-            <div>
-              <h2 className="text-xl md:text-2xl font-bold mb-6 text-black font-tiempos" style={{fontFamily: 'Tiempos Headline, serif', fontWeight: '400'}}>
-                Real Estate Insights & Guides
-              </h2>
-              <div className="space-y-4 font-suisse">
-                {[
-                  { title: "Why Bangalore is India's Silicon Valley for Property Investments", desc: "Understand why global and NRI investors are pouring funds into Bangalore real estate.", href: "/blog" },
-                  { title: "5 Tips to Safely Purchase Premium Flats and Villas", desc: "A comprehensive checklist covering RERA approval, documentation, and key negotiations.", href: "/blog" }
-                ].map((blog) => (
-                  <Link 
-                    key={blog.title} 
-                    href={blog.href}
-                    className="block p-4 rounded-xl border border-gray-100 hover:border-[#011337]/20 hover:bg-gray-50/50 transition-all"
-                  >
-                    <div className="font-semibold text-[#011337] text-sm md:text-base hover:underline">{blog.title}</div>
-                    <div className="text-xs text-gray-500 mt-1">{blog.desc}</div>
-                  </Link>
-                ))}
-              </div>
-            </div>
-          </div>
         </div>
       </section>
 

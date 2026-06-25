@@ -135,7 +135,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-slate-300 hover:text-white transition-colors font-['Suisse_Intl',sans-serif]">
+                <Link href="/contact#contact-information" className="text-slate-300 hover:text-white transition-colors font-['Suisse_Intl',sans-serif]">
                   Contact
                 </Link>
               </li>
@@ -153,7 +153,7 @@ Ward No. 38, No. 11/1-4 Pipeline Road HMT, Yeswanthpur, Bengaluru, Karnataka 56
               </li>
               <li className="flex">
                 <Phone className="h-5 w-5 text-white mr-3 flex-shrink-0" />
-                <span className="text-slate-300 font-['Suisse_Intl',sans-serif]">+91 9743264328</span>
+                <span className="text-slate-300 font-['Suisse_Intl',sans-serif]">+91 8197773166</span>
               </li>
               <li className="flex">
                 <Mail className="h-5 w-5 text-white mr-3 flex-shrink-0" />

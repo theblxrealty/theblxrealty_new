@@ -129,7 +129,7 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Information */}
-      <section className="py-16 md:py-24 bg-white">
+      <section id="contact-information" className="py-16 md:py-24 bg-white">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <div>
@@ -164,7 +164,7 @@ export default function ContactPage() {
                       </div>
                       <div className="flex-1">
                         <h4 className="font-bold text-black text-lg font-['Suisse_Intl',sans-serif]">Call Our Experts</h4>
-                        <p className="text-gray-500 font-['Suisse_Intl',sans-serif] text-sm">+91 97432 64328</p>
+                        <p className="text-gray-500 font-['Suisse_Intl',sans-serif] text-sm">+91 8197773166</p>
                         <p className="text-gray-500 mt-2 font-['Suisse_Intl',sans-serif] text-sm">
                           Our property specialists are available Monday to Saturday, 9:00 AM to 6:00 PM.
                         </p>
@@ -383,7 +383,7 @@ Ward No. 38, No. 11/1-4 Pipeline Road HMT, Yeswanthpur, Bengaluru, Karnataka 56
                   officeName="The BLX Realty Bangalore"
                   address="#0301D 3rd floor, Brigade Twin Towers
 Ward No. 38, No. 11/1-4 Pipeline Road HMT, Yeswanthpur, Bengaluru, Karnataka 560022, India"
-                  phone="+91 9743264328"
+                  phone="+91 8197773166"
                   email="Discoverblr@theblxrealty.com"
                 />
               </div>

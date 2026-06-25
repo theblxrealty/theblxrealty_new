@@ -26,16 +26,16 @@ const partners: Partner[] = [
     name:  "godrej",
     logo: "/partners/godreg png.webp",
   },
-  // {
-  //   id: 4,
-  //   name: "JRC Builders",
-  //   logo: "/partners/jrc.png",
-  // },
-  // {
-  //   id: 5,
-  //   name: "Rohan Builders",
-  //   logo: "/partners/rohan.png",
-  // },
+  {
+    id: 4,
+    name: "Sobha",
+    logo: "/partners/Sobha-Developers-Logo-Vector.svg-.webp",
+  },
+  {
+    id: 5,
+    name: "Mahaveer",
+    logo: "/partners/Mahaveer-Logo001.webp",
+  },
   {
     id: 6,
     name: "nambiar",
@@ -50,7 +50,22 @@ const partners: Partner[] = [
     id: 8,
     name: "Lodha Group",
     logo: "/partners/lodha png.webp",
-  } 
+  },
+  {
+    id: 9,
+    name: "Ruchira",
+    logo: "/partners/ruchira-logo-08-04.webp",
+  },
+  {
+    id: 10,
+    name: "Vasudharini Homes",
+    logo: "/partners/vasudharini Homes - Black.0efd99af23e0d7dfbabc.webp",
+  },
+  {
+    id: 11,
+    name: "Assetz",
+    logo: "/partners/Assetz-logo.svg.webp",
+  }
 ]
 
 export default function ChannelPartnersSlider() {

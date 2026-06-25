@@ -28,42 +28,34 @@ export default function CompleteTransactionSecurity() {
       <div className="max-w-5xl mx-auto p-8 space-y-6">
         <h2 className="text-3xl font-bold">End-to-End Secure Real Estate Transactions</h2>
         <p className="text-lg text-gray-700 leading-relaxed">
-          Buying or selling property involves critical legal and financial processes. 
-          Our dedicated team ensures transparency, compliance, and protection at every step. 
-          From legal verification and documentation to financing assistance and secure transaction management, 
-          we provide the complete support you need for a worry-free property experience.
+         Buying and selling property in Bengaluru involves important legal and financial processes. BLXREALTY’s dedicated team guarantees complete transparency, RERA compliance and buyer protection throughout the process – from legal verification and title due diligence to home loan assistance and secure transaction management. We provide you with the full support you need to make a worry-free and fraud-free property purchase.
         </p>
       </div>
 
       {/* Service Highlights */}
       <section className="max-w-5xl mx-auto grid md:grid-cols-2 gap-6 p-8">
         <ServiceCard title="Legal Verification">
-          Thorough due diligence of property documents, title deeds, and ownership 
-          records to ensure clear and dispute-free transactions.
+          Full legal due diligence of property documents, title deeds, encumbrance certificates and ownership records – ensuring clear title and dispute-free property transactions in Bengaluru.
         </ServiceCard>
 
         <ServiceCard title="Documentation Support">
-          Drafting, reviewing, and verifying agreements, MoUs, and registration papers 
-          handled by experts for seamless paperwork.
+          Expert drafting, reviewing, and verifying of sale agreements, sale deeds, and property registration papers — ensuring seamless, legally compliant documentation for your purchase.
         </ServiceCard>
 
         <ServiceCard title="Financing Assistance">
-          End-to-end support in securing loans, connecting with financial institutions, 
-          and obtaining the best terms for your investment.
+          We offer comprehensive support for home loans, connecting you with reputable banks and financial institutions to secure the best interest rates and terms for property investments in Bengaluru.
         </ServiceCard>
 
         <ServiceCard title="Regulatory Compliance">
-          Guidance to comply with all local laws, RERA regulations, and municipal approvals, 
-          ensuring every transaction is fully legal.
+          Full guidance on RERA rules, approvals from Karnataka municipal authorities, stamp duty compliance and local property laws – so that every transaction is 100% legal and covered from A to Z.
         </ServiceCard>
 
         <ServiceCard title="Secure Payments">
-          Transparent financial management and structured payment schedules, protecting both buyers and sellers.
+          Structured payment schedules for properties and transparent financial management – all safe and fraud-free, protecting both buyers and sellers throughout the transaction.
         </ServiceCard>
 
         <ServiceCard title="End-to-End Transaction Management">
-          A single-window approach that covers every step—from property verification to 
-          deal closure—providing peace of mind throughout.
+          Single-window property transaction management system for all your property needs - from property verification and legal checks to deal closure and handing over possession. Complete peace of mind for your purchase.
         </ServiceCard>
       </section>
 
@@ -73,11 +65,10 @@ export default function CompleteTransactionSecurity() {
           Looking for a Secure and Hassle-Free Property Transaction?
         </h2>
         <p className="mb-4 text-gray-700">
-          Our experts ensure that your real estate journey is legally sound, 
-          financially secure, and completely transparent.
+          Our property transaction experts in Bengaluru ensure your real estate journey is legally sound, financially secure, and completely transparent — from first site visit to final registration.
         </p>
         <Link
-          href="/contact"
+          href="/contact#contact-information"
           className="inline-block px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition"
         >
           Contact Us

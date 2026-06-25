@@ -141,7 +141,7 @@ export default async function PropertyDetailPage({ params }: { params: Promise<{
       featured: true,
       agent: {
         name: property.agentName || "The BLX Realty Agent",
-        phone: property.agentPhone || "+91 9743264328",
+        phone: property.agentPhone || "+91 8197773166",
         email: property.agentEmail || "Discoverblr@theblxrealty.com",
         image: property.agentImage || "/placeholder-user.webp",
       },

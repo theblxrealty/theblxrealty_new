@@ -1,6 +1,6 @@
 "use client"
 
-import { memo } from "react"
+import { memo, useEffect, useMemo, useState } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { MapPin } from "lucide-react"
@@ -43,6 +43,28 @@ function formatAvailableBhk(value?: string | null) {
 
 function PropertyCard({ property }: { property: Property }) {
   const availableBhkLabel = formatAvailableBhk(property.availableBhk)
+  const [activeImageIndex, setActiveImageIndex] = useState(0)
+
+  const bannerImages = useMemo(() => {
+    const images = property.images?.filter(Boolean) ?? []
+    if (images.length === 0) return ["/placeholder.svg"]
+    if (images.length === 1) return [images[0], images[0]]
+    return [images[0], images[1]]
+  }, [property.images])
+
+  useEffect(() => {
+    setActiveImageIndex(0)
+  }, [property.images])
+
+  useEffect(() => {
+    if (bannerImages.length < 2) return
+
+    const interval = setInterval(() => {
+      setActiveImageIndex((index) => (index + 1) % bannerImages.length)
+    }, 8000)
+
+    return () => clearInterval(interval)
+  }, [bannerImages.length])
 
   return (
     <Link href={`/properties/${property.id}`}>
@@ -87,29 +109,21 @@ function PropertyCard({ property }: { property: Property }) {
           </div>
 
           <div className="lg:w-1/2 relative">
-            <div className="grid grid-cols-2 h-full gap-2 px-2">
-              <div className="relative h-full overflow-hidden rounded-lg">
-                <Image 
-                  src={property.images?.[0] || "/placeholder.svg"} 
-                  alt={`${property.title} - Exterior View`} 
-                  fill 
-                  className="object-cover" 
-                />
-                <div className="absolute inset-0 bg-black/10" />
-              </div>
-              <div className="relative h-full overflow-hidden rounded-lg">
-                <Image 
-                  src={property.images?.[1] || property.images?.[0] || "/placeholder.svg"} 
-                  alt={`${property.title} - Interior View`} 
-                  fill 
-                  className="object-cover" 
-                />
-                <div className="absolute inset-0 bg-black/10" />
-                <div className="absolute bottom-3 right-3 bg-amber-600 text-white p-2 rounded-lg shadow-lg hover:bg-amber-700 transition-colors">
-                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </div>
+            <div className="relative h-full overflow-hidden rounded-lg">
+              <Image
+                src={bannerImages[activeImageIndex]}
+                alt={`${property.title} banner ${activeImageIndex + 1}`}
+                fill
+                className="object-cover"
+              />
+              <div className="absolute inset-0 bg-black/10" />
+              <div className="absolute bottom-3 left-1/2 -translate-x-1/2 flex gap-2 bg-black/40 px-3 py-1 rounded-full">
+                {bannerImages.map((_, index) => (
+                  <span
+                    key={index}
+                    className={`h-2 w-2 rounded-full transition-all ${index === activeImageIndex ? 'bg-white' : 'bg-white/60'}`}
+                  />
+                ))}
               </div>
             </div>
           </div>

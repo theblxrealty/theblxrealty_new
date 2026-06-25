@@ -45,7 +45,7 @@ const globalJsonLd = {
       },
       "contactPoint": {
         "@type": "ContactPoint",
-        "telephone": "+91-9743264328",
+        "telephone": "+91-8197773166",
         "contactType": "sales",
         "areaServed": ["IN", "GB"],
         "availableLanguage": ["English", "Hindi", "Kannada"]
