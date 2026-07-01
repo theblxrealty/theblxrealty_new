@@ -3,7 +3,7 @@ import PropertyTypeCard from "./property-type-card"
 const propertyTypes = [
   {
     title: "Villas",
-    imageSrc: "/property_type/img1.webp",
+    imageSrc: "/property_type/villa.webp",
     href: "/properties?type=luxury villas",
     alt: "Luxury Villas"
   },
@@ -27,13 +27,13 @@ const propertyTypes = [
   // },
   {
     title: "Sites",
-    imageSrc: "/property_type/img2.webp",
+    imageSrc: "/property_type/sites.webp",
     href: "/properties?type=sites",
     alt: "Sites"
   },
   {
     title: "Commercial",
-    imageSrc: "/property_type/property.webp",
+    imageSrc: "/property_type/commercial.webp",
     href: "/properties?type=commercial",
     alt: "Commercial Properties"
   },
